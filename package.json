@@ -1,9 +1,10 @@
 {
   "name": "bet",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Interview app",
   "main": "server.js",
   "scripts": {
+    "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,12 +18,20 @@
   },
   "homepage": "https://github.com/anghelgabrielmihai/bet#readme",
   "dependencies": {
-    "bluebird": "^3.5.3",
+    "bluebird": "3.5.3",
     "body-parser": "1.18.3",
     "express": "4.16.4",
     "http": "0.0.0",
     "redis": "2.8.0",
-    "request": "^2.88.0",
+    "request": "2.88.0",
     "request-promise": "4.2.2"
+  },
+  "devDependencies": {
+    "chai": "4.1.x",
+    "chai-as-promised": "~7.1.1",
+    "mocha": "5.0.x",
+    "nock": "~9.2.4",
+    "nyc": "~11.6.0",
+    "supertest": "~3.0.0"
   }
 }

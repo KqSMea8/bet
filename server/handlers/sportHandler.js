@@ -2,6 +2,11 @@ const { getData } = require('../services/dataProvider');
 
 module.exports = {
 
+    /**
+     * @description Function used to return all sports for specific language
+     * @param {Object} req - Request object
+     * @param {Object} res - Response object
+     */
     getAllSports: async (req, res) => {
         try {
             let response = await getData(req.lang);
@@ -18,6 +23,11 @@ module.exports = {
         }
     },
 
+    /**
+     * @description Function used to return all events for given sport
+     * @param {Object} req - Request object
+     * @param {Object} res - Response object
+     */
     listAllEventsForGivenSport: async (req, res) => {
         if (!req.params.givenSport) {
             return res.sendStatus(400);
@@ -44,6 +54,11 @@ module.exports = {
         }
     },
 
+    /**
+     * @description Function used to return all data for given event by Id
+     * @param {Object} req - Request object
+     * @param {Object} res - Response object
+     */
     listAllDataForGivenEvent: async (req, res) => {
         if (!req.params.id) {
             return res.sendStatus(400);
@@ -69,6 +84,11 @@ module.exports = {
         }
     },
 
+    /**
+     * @description Function used to return all sports in all languages
+     * @param {Object} req - Request object
+     * @param {Object} res - Response object
+     */
     listAllSportsAllLanguages: async (req, res) => {
         try {
 

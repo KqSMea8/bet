@@ -1,6 +1,11 @@
-const { getRedis } = require('./getFromRedis');
-
 module.exports = {
+
+     /**
+     * @description Middleware created to check for valid languages
+     * @param {Object} req - Request object
+     * @param {Object} res - Response object
+     * @param {Object} next - Next object
+     */
     checkLanguage: async (req, res, next) => {
         let languages = ['en-gb', 'de-de', 'zh-cn'];
         let selectedLang = languages.filter(item => item === req.query.lang);

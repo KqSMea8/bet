@@ -2,7 +2,11 @@ const rp = require('request-promise');
 
 module.exports = {
 
-    callExternalApi: (lang = 'en') => {
+     /**
+     * @description Function used to call external API
+     * @param {String} lang - Language to be searched for
+     */
+    callExternalApi: (lang) => {
 
         let options = {
             method: 'GET',
