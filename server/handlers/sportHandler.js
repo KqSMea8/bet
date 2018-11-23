@@ -5,6 +5,13 @@ module.exports = {
     getAllSports: async (req, res) => {
         try {
             let response = await getData(req.lang);
+            delete response.version;
+
+            response = response.sports.map(item => {
+                delete item.events;
+                return item;
+            });
+
             res.send(response);
         } catch (error) {
             throw error
