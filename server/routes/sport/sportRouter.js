@@ -15,7 +15,7 @@ module.exports = router => {
 
     router.get('/sports', checkLanguage, getAllSports);
     router.get('/events/sport/:givenSport', checkLanguage, listAllEventsForGivenSport);
-    router.get('/data/sport/:givenEvent', checkLanguage, listAllDataForGivenEvent);
-    router.get('/sports/all', checkLanguage, listAllSportsAllLanguages);
+    router.get('/events/event/:id', checkLanguage, listAllDataForGivenEvent);
+    router.get('/sports/all', listAllSportsAllLanguages);
 
 };
