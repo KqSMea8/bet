@@ -1,7 +1,6 @@
 const app = require('../app');
 const chai = require('chai');
 const client = require('../utils/dbConnector').client;
-const { callExternalApi } = require('../server/services/apiCaller');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
 const nockData = require('../test/data-for-nock.json');
