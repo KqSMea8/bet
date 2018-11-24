@@ -27,7 +27,7 @@ describe('Unit Test', function () {
 
 describe('Test every endpoint using nock', () => {
 
-    beforeEach(async () => {
+    afterEach(async () => {
         nock.cleanAll();
 
         client.flushdb(function (err, succeeded) {
@@ -74,14 +74,12 @@ describe('Test every endpoint using nock', () => {
 
     it('Get all Events for given sport expect 200 with empty response', async () => {
 
-        nockData.sports[0].title = '';
-
         nock('http://www.betvictor.com')
             .get('/en-gb/live/live/list')
             .reply(200, nockData);
 
         await superTest(app)
-            .get('/api/events/sport/Football')
+            .get('/api/events/sport/test')
             .query({ lang: 'en-gb' })
             .expect(200);
     });

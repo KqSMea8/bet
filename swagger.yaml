@@ -1,0 +1,307 @@
+swagger: "2.0"
+info:
+  description: "This is an application created for interview test"
+  version: "1.0.0"
+  title: "Swagger Interview"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "anghelgabrielmihai@gmail.com"
+host: "localhost:3000"
+basePath: "/api"
+tags:
+- name: "sports"
+  description: "Everything about sports"
+- name: "events"
+  description: "Everything about events"
+schemes:
+- "http"
+paths:
+  /sports:
+    get:
+      tags:
+      - "sports"
+      summary: "Get list will all sports"
+      description: "This endpoint will return a list will all sports"
+      responses:
+        200:
+          description: "List of sports"
+          schema:
+            $ref: "#/definitions/Sports"
+        500:
+          description: "Internal server error"
+  /events/sport/{sport}:
+    get:
+      tags:
+      - "events"
+      summary: "Get list with all events for specific sport"
+      description: "This endpoint will return a list will all events for specific sport"
+      parameters:
+        - in: path
+          name: sport
+          type: string
+          description: Parameter specify for what sport should desplay informations
+          required: true
+      responses:
+        200:
+          description: "List of events for given sport"
+          schema:
+            $ref: "#/definitions/Events"
+        500:
+          description: "Internal server error"
+  /events/event/{id}:
+    get:
+      tags:
+      - "events"
+      summary: "Get list with all informations for specific event"
+      description: "This endpoint will return all informations for specified event"
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: Parameter specify for what event should desplay informations
+          required: true
+      responses:
+        200:
+          description: "List of events for given sport"
+          schema:
+            $ref: "#/definitions/EventExtended"
+        500:
+          description: "Internal server error"
+  /sports/all:
+    get:
+      tags:
+      - "sports"
+      summary: "Get list with all sports in all languages"
+      description: "This endpoint will return a list with all sports in all languages"
+      responses:
+        200:
+          description: "List of sports in all languages"
+          schema:
+            $ref: "#/definitions/SportsAllLanguages"
+        500:
+          description: "Internal server error"
+  
+definitions:
+  Sports: 
+    title: Sports response
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        meetings:
+          type: array
+          items:
+            type: string
+        is_virtual: 
+          type: boolean
+        pos: 
+          type: number
+  Events:
+    title: Events response
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+        is_virtual: 
+          type: boolean
+        event_id:
+          type: number
+        title: 
+          type: string
+        market_id:
+          type: number
+        market_type_id:
+          type: string
+        status_id:
+          type: string
+        score: 
+          type: string
+        description:
+          type: string
+        start-time:
+          type: string
+          format: date-time
+        meeting:
+          type: string
+        meeting_id:
+          type: string
+        media: 
+          type: string
+        american_format:
+          type: boolean
+        event_type:
+          type: string
+        pos:
+          type: number
+        home_team:
+          type: string
+        away_team:
+          type: string
+        team_information:
+          type: boolean
+        home_score:
+          type: number
+        away_score:
+          type: number
+        period_id:
+          type: number
+        status_type:
+          type: string
+        status:
+          type: string
+        total_outcomes:
+          type: number
+  EventExtended:
+   title: Events response
+   type: array
+   items:
+      type: object
+      properties:
+        id:
+          type: number
+        is_virtual: 
+          type: boolean
+        event_id:
+          type: number
+        title: 
+          type: string
+        market_id:
+          type: number
+        market_type_id:
+          type: string
+        status_id:
+          type: string
+        score: 
+          type: string
+        description:
+          type: string
+        start-time:
+          type: string
+          format: date-time
+        meeting:
+          type: string
+        meeting_id:
+          type: string
+        media: 
+          type: string
+        american_format:
+          type: boolean
+        event_type:
+          type: string
+        pos:
+          type: number
+        home_team:
+          type: string
+        away_team:
+          type: string
+        team_information:
+          type: boolean
+        home_score:
+          type: number
+        away_score:
+          type: number
+        period_id:
+          type: number
+        status_type:
+          type: string
+        status:
+          type: string
+        total_outcomes:
+          type: number
+        outcomes:
+          type: array
+          items:
+                type: object
+                properties:
+                  id: 
+                    type: number
+                  description: 
+                    type: string
+                  price_decimal:
+                    type: number
+                  price:
+                    type: number
+                  price_id: 
+                    type: number
+                  print_order: 
+                    type: number
+                  opponent_id: 
+                    type: string
+                  deduction: 
+                    type: boolean
+                  sp: 
+                    type: boolean
+                  nr: 
+                    type: boolean
+                  market: 
+                    type: string
+                  market_id: 
+                    type: number
+                  race_card_no:
+                    type: number
+  SportsAllLanguages:
+    title: Sports response
+    type: array
+    items:
+      type: object
+      properties:
+       en-gb:
+        type: array
+        items:
+          type: object
+          properties:
+            id: 
+              type: number
+            title:
+              type: string
+            meetings:
+              type: array
+              items:
+                type: string
+            is_virtual:
+              type: boolean
+            pos:
+              type: number
+       de-de:
+        type: array
+        items:
+          type: object
+          properties:
+            id: 
+              type: number
+            title:
+              type: string
+            meetings:
+              type: array
+              items:
+                type: string
+            is_virtual:
+              type: boolean
+            pos:
+              type: number
+       zh-cn:
+        type: array
+        items:
+          type: object
+          properties:
+            id: 
+              type: number
+            title:
+              type: string
+            meetings:
+              type: array
+              items:
+                type: string
+            is_virtual:
+              type: boolean
+            pos:
+              type: number
+            
+                
+        
