@@ -10,7 +10,7 @@ module.exports = {
 
         let options = {
             method: 'GET',
-            uri: `http://www.betvictor.com/${lang}/live/live/list.json`,
+            uri: `http://www.betvictor.com/${lang}/live/live/list`,
             json: true, // Automatically parses the JSON string in the response
         };
         return rp(options);

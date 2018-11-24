@@ -19,7 +19,7 @@ module.exports = {
 
             res.send(response);
         } catch (error) {
-            throw error
+            res.sendStatus(500);
         }
     },
 
@@ -29,9 +29,6 @@ module.exports = {
      * @param {Object} res - Response object
      */
     listAllEventsForGivenSport: async (req, res) => {
-        if (!req.params.givenSport) {
-            return res.sendStatus(400);
-        }
 
         try {
             let response = await getData(req.lang);
@@ -48,9 +45,9 @@ module.exports = {
                 });
                 return res.send(response);
             }
-            res.send();
+            res.send([]);
         } catch (error) {
-            throw error;
+            res.sendStatus(500);
         }
     },
 
@@ -60,9 +57,6 @@ module.exports = {
      * @param {Object} res - Response object
      */
     listAllDataForGivenEvent: async (req, res) => {
-        if (!req.params.id) {
-            return res.sendStatus(400);
-        }
 
         try {
             let response = await getData(req.lang);
@@ -80,7 +74,7 @@ module.exports = {
 
             res.send(response[0]);
         } catch (error) {
-            throw error;
+            res.sendStatus(500);
         }
     },
 
@@ -111,7 +105,7 @@ module.exports = {
             res.send(response);
 
         } catch (error) {
-            throw error
+            res.sendStatus(500);
         }
     }
 

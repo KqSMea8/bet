@@ -9,6 +9,25 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/server.js"
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "obac-core-Mocha",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "skipFiles": [
+                "<node_internals>/**/*.js",
+                "${workspaceFolder}/node_modules/**/*.js",
+                "${workspaceFolder}/lib/**/*.js"
+            ],
+            "args": [
+                "-u",
+                "tdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceFolder}/test/**/*.js"
+            ]
+        },
     ]
 }

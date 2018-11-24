@@ -1,11 +1,12 @@
 {
   "name": "bet",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Interview app",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "test-nyc": "nyc mocha --timeout 15000 --recursive"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,11 @@
     "request-promise": "4.2.2"
   },
   "devDependencies": {
-    "chai": "4.1.x",
+    "chai": "^4.1.2",
     "chai-as-promised": "~7.1.1",
-    "mocha": "5.0.x",
-    "nock": "~9.2.4",
-    "nyc": "~11.6.0",
-    "supertest": "~3.0.0"
+    "mocha": "^5.0.5",
+    "nock": "^9.2.6",
+    "nyc": "^11.6.0",
+    "supertest": "^3.3.0"
   }
 }
